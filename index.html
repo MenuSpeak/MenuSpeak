@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MenuSpeak - Premium Digital QR Menu for Hotels & Restaurants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #0f0f0f;
+            color: #e0e0e0;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 50%, #8B6914 100%);
+        }
+        
+        .dark-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+        }
+        
+        .gold-text {
+            background: linear-gradient(135deg, #D4AF37, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.4s ease;
+            background: linear-gradient(145deg, #1a1a1a, #222222);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .premium-gold-border {
+            border: 2px solid;
+            border-image: linear-gradient(135deg, #D4AF37, #B8860B) 1;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .pulse-green {
+            animation: pulse-green 2s infinite;
+        }
+        
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .nav-glass {
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .gold-accent {
+            color: #D4AF37;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            margin: 40px 0;
+        }
+        
+        .gold-button {
+            background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            color: #0f0f0f;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .gold-button:hover {
+            background: linear-gradient(135deg, #E6C158 0%, #C99A1A 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .green-button {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .green-button:hover {
+            background: linear-gradient(135deg, #2FE573 0%, #1AAE9F 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .price-card {
+            background: linear-gradient(145deg, #1a1a1a, #222222);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .price-card:hover {
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            transform: translateY(-5px);
+        }
+        
+        .premium-highlight {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-highlight::before {
+            content: "POPULAR";
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: linear-gradient(135deg, #D4AF37, #B8860B);
+            color: #0f0f0f;
+            padding: 5px 30px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="dark-bg">
+    <!-- Navigation -->
+    <nav class="nav-glass sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                    <i class="fas fa-crown text-black text-lg"></i>
+                </div>
+                <span class="text-2xl font-bold gold-text">MenuSpeak</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-gray-300 hover:gold-text transition font-medium">Home</a>
+                <a href="#demos" class="text-gray-300 hover:gold-text transition font-medium">Demos</a>
+                <a href="#features" class="text-gray-300 hover:gold-text transition font-medium">Features</a>
+                <a href="#pricing" class="text-gray-300 hover:gold-text transition font-medium">Pricing</a>
+                <a href="#contact" class="text-gray-300 hover:gold-text transition font-medium">Contact</a>
+            </div>
+            <a href="https://wa.me/919284969878" target="_blank" class="green-button px-5 py-2 rounded-lg font-medium pulse-green">
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-24 md:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-10 left-10 w-32 h-32 gradient-bg rounded-full floating"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 gradient-bg rounded-full floating" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-40 h-40 gradient-bg rounded-full floating" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-40 right-1/3 w-20 h-20 gradient-bg rounded-full floating" style="animation-delay: 1.5s;"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in gold-text">Digital Menu for Modern Restaurants 🍽</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300 fade-in" style="transition-delay: 0.2s;">
+                Upgrade your hotel/restaurant with an Interactive QR Code Menu that's Easy, Stylish & Always Updated.
+            </p>
+            <a href="#demos" class="gold-button px-8 py-3 rounded-lg font-semibold text-lg inline-block pulse-gold fade-in" style="transition-delay: 0.4s;">
+                See Demo
+            </a>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demos" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in gold-text">Live Demos 🔗</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto fade-in">Experience our premium digital menu solutions</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="price-card p-8 rounded-2xl card-hover fade-in">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-hotel text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white text-center">Hotel Dhanlaxmi</h3>
+                    <p class="text-gray-400 mb-6 text-center">Experience a complete digital menu solution for a premium hotel experience.</p>
+                    <a href="https://menuspeak.github.io/Hotel-Dhanlaxmi-/" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium">
+                        View Demo <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="price-card p-8 rounded-2xl card-hover fade-in" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-utensils text-2xl text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white text-center">Hotel Aamatran</h3>
+                    <p class="text-gray-400 mb-6 text-center">Explore an interactive menu with seamless navigation and modern design.</p>
+                    <a href="https://menuspeak.github.io/hotel-Aamatran/" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium">
+                        View Demo <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider container mx-auto"></div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in gold-text">Why Choose MenuSpeak?</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto fade-in">Premium features for a premium dining experience</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="price-card p-8 rounded-2xl card-hover text-center fade-in">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-mobile-alt text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Easy to Use</h3>
+                    <p class="text-gray-400">Simple setup process with no technical knowledge required. Your customers scan the QR code and access your menu instantly.</p>
+                </div>
+                
+                <div class="price-card p-8 rounded-2xl card-hover text-center fade-in" style="transition-delay: 0.2s;">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-sync-alt text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Instant Updates</h3>
+                    <p class="text-gray-400">Change menu items, prices, or descriptions anytime. Updates reflect immediately across all customer devices.</p>
+                </div>
+                
+                <div class="price-card p-8 rounded-2xl card-hover text-center fade-in" style="transition-delay: 0.4s;">
+                    <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-palette text-3xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-white">Modern Branding</h3>
+                    <p class="text-gray-400">Customizable designs that match your restaurant's branding. Impress customers with a professional digital presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider container mx-auto"></div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in gold-text">Premium Pricing</h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto fade-in">Choose the perfect plan for your restaurant</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="price-card p-8 rounded-2xl relative fade-in">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Basic Plan</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold gold-text">₹499</span>
+                        <span class="text-gray-400">/one-time</span>
+                    </div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Digital QR Menu</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Easy Menu Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Custom Branding</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Instant Updates</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/919284969878?text=Hi,%20I'm%20interested%20in%20the%20Basic%20Plan%20(₹499)" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium">
+                        Get Started
+                    </a>
+                </div>
+                
+                <div class="price-card p-8 rounded-2xl relative premium-highlight fade-in" style="transition-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold mb-4 text-white">Premium Plan</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold gold-text">₹999</span>
+                        <span class="text-gray-400">/one-time</span>
+                    </div>
+                    <ul class="mb-8 space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Everything in Basic</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Ordering System</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Table Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check gold-accent mr-3"></i>
+                            <span class="text-gray-300">Customer Analytics</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/919284969878?text=Hi,%20I'm%20interested%20in%20the%20Premium%20Plan%20(₹999)" target="_blank" class="block w-full green-button text-center py-3 rounded-lg font-medium pulse-green">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider container mx-auto"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in gold-text">Contact Us 📞</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto text-gray-300 fade-in" style="transition-delay: 0.2s;">
+                Ready to transform your restaurant's dining experience? Get in touch with us today!
+            </p>
+            <a href="https://wa.me/919284969878" target="_blank" class="green-button px-8 py-3 rounded-lg font-semibold text-lg inline-block pulse-green fade-in" style="transition-delay: 0.4s;">
+                <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+            </a>
+            
+            <div class="border-t border-gray-800 pt-8 mt-12">
+                <p class="text-gray-500">© <span id="currentYear"></span> MenuSpeak. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Initial check on page load
+        fadeInOnScroll();
+    </script>
+</body>
+</html>
