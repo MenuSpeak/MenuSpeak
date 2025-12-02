@@ -289,6 +289,46 @@
             visibility: visible;
         }
         
+        .demo-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(145deg, #1a1a1a, #222222);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .demo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .demo-preview:hover img {
+            transform: scale(1.05);
+        }
+        
+        .demo-preview .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .demo-preview:hover .overlay {
+            opacity: 1;
+        }
+        
         /* Mobile-specific optimizations */
         @media (max-width: 640px) {
             .container {
@@ -347,6 +387,10 @@
             
             .contact-info {
                 padding: 1.5rem;
+            }
+            
+            .demo-preview {
+                height: 150px;
             }
         }
         
@@ -589,25 +633,130 @@
             <p class="text-center text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto fade-in text-sm md:text-base">Experience our premium digital menu solutions</p>
             
             <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                <!-- Hotel Dhanlaxmi Demo -->
                 <div class="price-card p-6 md:p-8 rounded-2xl card-hover fade-in">
-                    <div class="w-14 h-14 md:w-16 md:h-16 gradient-bg rounded-full flex items-center justify-center mb-4 md:mb-6 mx-auto">
-                        <i class="fas fa-hotel text-xl md:text-2xl text-black"></i>
+                    <div class="demo-preview">
+                        <div class="overlay">
+                            <span class="gold-button px-4 py-2 rounded-lg font-medium">
+                                <i class="fas fa-external-link-alt mr-2"></i> View Demo
+                            </span>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center gradient-bg">
+                            <i class="fas fa-hotel text-4xl text-black"></i>
+                        </div>
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white text-center">Hotel Dhanlaxmi</h3>
-                    <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">Experience a complete digital menu solution for a premium hotel experience.</p>
+                    <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">Experience a complete digital menu solution for a premium hotel experience with full dining options.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Multi-Cuisine</span>
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Premium Hotel</span>
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Full Service</span>
+                    </div>
                     <a href="https://menuspeak.github.io/Hotel-Dhanlaxmi-/" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium text-sm md:text-base">
                         View Demo <i class="fas fa-external-link-alt ml-2"></i>
                     </a>
                 </div>
                 
+                <!-- Hotel Aamatran Demo -->
                 <div class="price-card p-6 md:p-8 rounded-2xl card-hover fade-in" style="transition-delay: 0.2s;">
-                    <div class="w-14 h-14 md:w-16 md:h-16 gradient-bg rounded-full flex items-center justify-center mb-4 md:mb-6 mx-auto">
-                        <i class="fas fa-utensils text-xl md:text-2xl text-black"></i>
+                    <div class="demo-preview">
+                        <div class="overlay">
+                            <span class="gold-button px-4 py-2 rounded-lg font-medium">
+                                <i class="fas fa-external-link-alt mr-2"></i> View Demo
+                            </span>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-center gradient-bg">
+                            <i class="fas fa-utensils text-4xl text-black"></i>
+                        </div>
                     </div>
                     <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white text-center">Hotel Aamatran</h3>
-                    <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">Explore an interactive menu with seamless navigation and modern design.</p>
+                    <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">Explore an interactive menu with seamless navigation, modern design, and special dining packages.</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4">
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Modern Design</span>
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Interactive</span>
+                        <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Special Packages</span>
+                    </div>
                     <a href="https://menuspeak.github.io/Hotel--Amantran//" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium text-sm md:text-base">
                         View Demo <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Additional Demos Section -->
+            <div class="mt-16 md:mt-20 fade-in" style="transition-delay: 0.4s;">
+                <h3 class="text-xl md:text-3xl font-bold text-center mb-6 md:mb-8 gold-text">More Demo Showcases</h3>
+                <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+                    <!-- Demo 1 -->
+                    <div class="price-card p-6 md:p-8 rounded-2xl card-hover">
+                        <div class="w-14 h-14 md:w-16 md:h-16 gradient-bg rounded-full flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-utensils text-xl md:text-2xl text-black"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white text-center">Modern Restaurant Demo</h3>
+                        <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">A sleek, modern digital menu with categorized food items, high-quality images, and easy navigation perfect for contemporary restaurants.</p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Fast Food</span>
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Beverages</span>
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Desserts</span>
+                        </div>
+                        <a href="https://menuspeak.github.io/Demo/" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium text-sm md:text-base">
+                            View Demo 1 <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Demo 2 -->
+                    <div class="price-card p-6 md:p-8 rounded-2xl card-hover">
+                        <div class="w-14 h-14 md:w-16 md:h-16 gradient-bg rounded-full flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-hotel text-xl md:text-2xl text-black"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-white text-center">Premium Hotel Demo</h3>
+                        <p class="text-gray-400 mb-4 md:mb-6 text-center text-sm md:text-base">An elegant digital menu for hotels with multi-cuisine options, special packages, and room service integration for luxury hospitality.</p>
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Multi-Cuisine</span>
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Room Service</span>
+                            <span class="px-3 py-1 gold-border rounded-full text-xs text-gray-300">Luxury Dining</span>
+                        </div>
+                        <a href="https://menuspeak.github.io/Demo1/" target="_blank" class="block w-full gold-button text-center py-3 rounded-lg font-medium text-sm md:text-base">
+                            View Demo 2 <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Coming Soon Demos -->
+                <div class="mt-12 md:mt-16">
+                    <h4 class="text-lg md:text-2xl font-bold text-center mb-6 md:mb-8 text-white">More Demo Types Coming Soon</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+                        <div class="price-card p-4 md:p-5 rounded-xl text-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-coffee text-lg text-black"></i>
+                            </div>
+                            <h5 class="text-base md:text-lg font-bold mb-2 text-white">Cafe Menu</h5>
+                            <p class="text-gray-500 text-xs md:text-sm">Perfect for coffee shops</p>
+                        </div>
+                        
+                        <div class="price-card p-4 md:p-5 rounded-xl text-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-pizza-slice text-lg text-black"></i>
+                            </div>
+                            <h5 class="text-base md:text-lg font-bold mb-2 text-white">Fast Food Joint</h5>
+                            <p class="text-gray-500 text-xs md:text-sm">Quick-service restaurant menu</p>
+                        </div>
+                        
+                        <div class="price-card p-4 md:p-5 rounded-xl text-center">
+                            <div class="w-10 h-10 md:w-12 md:h-12 gradient-bg rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-cocktail text-lg text-black"></i>
+                            </div>
+                            <h5 class="text-base md:text-lg font-bold mb-2 text-white">Bar & Lounge</h5>
+                            <p class="text-gray-500 text-xs md:text-sm">Digital drinks menu for bars</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Demo Request -->
+                <div class="text-center mt-10 md:mt-12 p-6 md:p-8 price-card rounded-2xl max-w-2xl mx-auto">
+                    <h4 class="text-lg md:text-2xl font-bold mb-3 md:mb-4 text-white">Need a Custom Demo?</h4>
+                    <p class="text-gray-400 mb-4 md:mb-6 text-sm md:text-base">We can create a personalized demo showcasing how our digital menu would look for your specific restaurant type and branding.</p>
+                    <a href="https://wa.me/919284969878?text=Hi,%20I%20want%20to%20see%20a%20custom%20demo%20for%20my%20restaurant" target="_blank" class="green-button px-6 md:px-8 py-3 rounded-lg font-semibold text-base md:text-lg inline-block">
+                        <i class="fab fa-whatsapp mr-2"></i> Request Custom Demo
                     </a>
                 </div>
             </div>
@@ -988,12 +1137,6 @@
                         <a href="https://www.instagram.com/menuspeak/?hl=en " class="text-gray-400 hover:gold-text transition text-sm">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <!-- <a href="whatsapp" class="text-gray-400 hover:gold-text transition text-sm">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:gold-text transition text-sm">
-                            <i class="fab fa-twitter"></i>
-                        </a> -->
                     </div>
                     <p class="text-gray-500 text-xs md:text-sm">© <span id="currentYear"></span> MenuSpeak. All rights reserved.</p>
                 </div>
@@ -1103,6 +1246,23 @@
                 e.preventDefault();
             }
         }, { passive: false });
+        
+        // Demo preview hover effect
+        document.querySelectorAll('.demo-preview').forEach(preview => {
+            preview.addEventListener('mouseenter', function() {
+                const overlay = this.querySelector('.overlay');
+                if (overlay) {
+                    overlay.style.opacity = '1';
+                }
+            });
+            
+            preview.addEventListener('mouseleave', function() {
+                const overlay = this.querySelector('.overlay');
+                if (overlay) {
+                    overlay.style.opacity = '0';
+                }
+            });
+        });
     </script>
 </body>
 </html>
